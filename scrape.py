@@ -1,6 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
 
+from openpyxl import Workbook, load_workbook
+from openpyxl.utils import get_column_letter
+from openpyxl.styles import Font
+
 try:
     #source = requests.get("https://www.dmo.gov.tr/Katalog/Urun/Detay/1171329_1059351")
     #source.raise_for_status()
@@ -54,7 +58,19 @@ try:
     
     urun_ozellikleri = soup.find_all("section", class_="fadeInUp")[1].text.strip()
     
-    print(urun_ozellikleri)
+    #print(urun_ozellikleri)
+    
+    
+    """ Excel Part """
+    #wb = Workbook()
+    #ws = wb.active
+    #ws.title = "Elektronik"
+    #
+    #headings = ["Ürün Bilgisi", "Satış Koşulları", "Ürün Özellikleri"]
+    #ws.append(headings)
+    #ws.append(["üb", "sk", "üö"])
+    #
+    #wb.save("test.xlsx")
     
 except Exception as e:
     print(e)
