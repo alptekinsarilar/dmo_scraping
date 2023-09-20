@@ -5,7 +5,7 @@ from scrape import scrape_product
 
 def scrape_catalog_with_page_number(page_no):
     try:
-        source = requests.get(f"https://www.dmo.gov.tr/Arama?s=&k=%7c%7cElektronik&p={page_no}&d=SM&e=3")
+        source = requests.get(f"https://www.dmo.gov.tr/Arama?s=&k=%7c%7c%c4%b0%c5%9f+Makineleri&p={page_no}&d=SM&e=3")
         source.raise_for_status()
         soup = BeautifulSoup(source.text, "html.parser")
 
@@ -22,7 +22,7 @@ def scrape_catalog_with_page_number(page_no):
             if a_element:
                 href_value = a_element['href']  # Extract the href attribute value
                 href_values.append(href_value)  # Append to the list
-                
+
         # Somehow for 32 product there were 64 href so we need to make them unique
         # Probably there are 2 href for a product, 1 for image 1 for text
         href_values = set(href_values)
@@ -32,11 +32,12 @@ def scrape_catalog_with_page_number(page_no):
             scrape_product(href_value)
             
     except Exception as e:
-            print(e)
+        print(e)     
+    
             
 def get_total_product_number():
     try:
-        source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7cElektronik")
+        source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7c%c4%b0%c5%9f+Makineleri")
         source.raise_for_status()
         soup = BeautifulSoup(source.text, "html.parser")
 
@@ -52,6 +53,8 @@ def get_total_product_number():
 total_page_no = math.ceil(get_total_product_number() / 32)
 
 # Now we need to scrape every page from "1" to "math.ceil(get_total_product_number() / 32)"
+
+
 for page_no in range(1, total_page_no+1):
     print("page no in catalog:", page_no)
     scrape_catalog_with_page_number(page_no)
