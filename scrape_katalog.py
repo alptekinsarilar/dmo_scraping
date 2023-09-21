@@ -5,7 +5,7 @@ from scrape import scrape_product
 
 def scrape_catalog_with_page_number(page_no):
     try:
-        source = requests.get(f"https://www.dmo.gov.tr/Arama?s=&k=%7c%7c%c4%b0%c5%9f+Makineleri&p={page_no}&d=SM&e=3")
+        source = requests.get(f"https://www.dmo.gov.tr/Arama?s=&k=%7c%7cEkipmanlar&p={page_no}&d=SM&e=3")
         source.raise_for_status()
         soup = BeautifulSoup(source.text, "html.parser")
 
@@ -37,7 +37,7 @@ def scrape_catalog_with_page_number(page_no):
             
 def get_total_product_number():
     try:
-        source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7c%c4%b0%c5%9f+Makineleri")
+        source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7cEkipmanlar")
         source.raise_for_status()
         soup = BeautifulSoup(source.text, "html.parser")
 

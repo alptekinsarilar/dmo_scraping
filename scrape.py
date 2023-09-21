@@ -16,7 +16,7 @@ wb = load_workbook(filepath)
 #ws = wb['İş Makineleri']
 
 # Specify the name of the worksheet you want to create or use
-worksheet_name = 'İş Makineleri'
+worksheet_name = 'Ekipmanlar'
 
 # Check if the worksheet already exists in the workbook
 if worksheet_name in wb.sheetnames:
@@ -43,8 +43,8 @@ def scrape_product(url):
 
         """ Part 1 """
 
-        #baslik = soup.find("div", class_="title").text
-        #tedarikci = soup.find("a", class_="available").text.strip()
+        baslik = soup.find("div", class_="title").text
+        tedarikci = soup.find("a", class_="available").text
         #aciklama = soup.find_all("p")[0].string
         #vergisiz_fiyat = soup.find("div", class_="price-current").text
         #vergili_fiyat = soup.find("div", class_="price-prev").text
@@ -83,7 +83,9 @@ def scrape_product(url):
         #print(teknolojik_duzey)
         #print(yerli_mali_belgesi_gecerlilik_tarihi)
         
-        genel_bilgi = soup.find("div", class_="excerpt").get_text()
+        genel_bilgi = baslik + tedarikci + soup.find("div", class_="excerpt").get_text()
+        
+        #print(genel_bilgi)
 
         """ Part 2 """
 
