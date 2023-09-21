@@ -50,6 +50,7 @@ def get_total_product_number():
     except Exception as e:
             print(e)
 
+# e in url must be 3 because we list 32 items in a page 
 total_page_no = math.ceil(get_total_product_number() / 32)
 
 # Now we need to scrape every page from "1" to "math.ceil(get_total_product_number() / 32)"
