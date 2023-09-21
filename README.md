@@ -7,7 +7,7 @@
 Örnek 6: source = requests.get(f"https://www.dmo.gov.tr/Arama?s=&k=%7c%7cSa%c4%9fl%c4%b1k%2c+Medikal+%c3%9cr%c3%bcnler&p={page_no}&d=SM&e=3") --> 32'li Sağlık Medikal Ürünler sekmesinin 1. sayfası
 * Örnek 7: source = requests.get(f"https://www.dmo.gov.tr/Arama?s=&k=%7c%7cEkipmanlar&p={page_no}&d=SM&e=3") --> 32'li Ekipmanlar sekmesinin 1. sayfası
 
-## Adım 2: scrape_katalog.py dosyasında 39. satırdaki requests.get() metodunun parametresine ilgili kategorinin url'si kopyalanır. Buradaki amaç ilgili kategoride bulunan toplam ürün sayısını tespit etmektir.
+## Adım 2: scrape_katalog.py dosyasında 40. satırdaki requests.get() metodunun parametresine ilgili kategorinin url'si kopyalanır. Buradaki amaç ilgili kategoride bulunan toplam ürün sayısını tespit etmektir.
 * Örnek 1: source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7cElektronik")
 * Örnek 2: source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7cOfis%2c+K%c4%b1rtasiye%2c+Temizlik")
 * Örnek 3: source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7cMobilya%2c+Tekstil")
@@ -15,6 +15,11 @@
 * Örnek 5: source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7c%c4%b0%c5%9f+Makineleri")
 * Örnek 6: source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7cSa%c4%9fl%c4%b1k%2c+Medikal+%c3%9cr%c3%bcnler")
 * Örnek 7: source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7cEkipmanlar")
+
+## Adım 3: scrape.py dosyasının 19. satırında bulunan worksheet_name değişkenini uygun kategori ismi ile değiştirin.
+* Örnek 1: worksheet_name = 'İş Makineleri'
+* Örnek 2: worksheet_name = 'Elektronik'
+* etc...
 
 ## Programın doğru şekilde çalıştırılabilmesi için dosyalarla aynı dizinde bulunan "dmo_urunler.xlsx" dosyası önceden oluşturulmuş olmalıdır. Sadece excelin oluşturulması yeterlidir. Sheet'lerin önceden oluşturulmasına gerek yoktur. create_excel.py dosyası bu işlemi gerçekleştirmeye yardımcı olur.
 
