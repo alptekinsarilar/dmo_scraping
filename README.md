@@ -15,3 +15,7 @@
 * Örnek 5: source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7c%c4%b0%c5%9f+Makineleri")
 * Örnek 6: source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7cSa%c4%9fl%c4%b1k%2c+Medikal+%c3%9cr%c3%bcnler")
 * Örnek 7: source = requests.get("https://www.dmo.gov.tr/Arama?k=%7c%7cEkipmanlar")
+
+## Programın doğru şekilde çalıştırılabilmesi için dosyalarla aynı dizinde bulunan "dmo_urunler.xlsx" dosyası önceden oluşturulmuş olmalıdır. Sadece excelin oluşturulması yeterlidir. Sheet'lerin önceden oluşturulmasına gerek yoktur. create_excel.py dosyası bu işlemi gerçekleştirmeye yardımcı olur.
+
+## Arzu edilen kategorideki ürünlerin aratılması için belirtilen yerlere örneklerde'ki url'ler yapıştırılmalıdır ve ardından scrape_katalog.py dosyası çalıştırılmalıdır.
